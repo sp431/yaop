@@ -1,0 +1,20 @@
+{
+  "name": "medicine-instruction-management",
+  "version": "1.0.0",
+  "description": "药品说明书管理网站",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "fs-extra": "^11.3.4",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
