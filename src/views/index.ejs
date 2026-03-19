@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>药品说明书管理</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>药品说明书管理</h1>
+    </header>
+    
+    <div class="search-container">
+      <div class="search-box">
+        <form action="/medicines" method="GET">
+          <input type="text" name="search" placeholder="搜索药品..." value="<%= search %>">
+          <button type="submit" class="btn btn-primary">搜索</button>
+        </form>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <a href="/medicines/import" class="btn btn-primary">导入</a>
+        <a href="/medicines/export" class="btn btn-primary">导出</a>
+        <a href="/medicines/add" class="btn btn-primary">添加药品</a>
+      </div>
+    </div>
+    
+    <% if (req.query.message) { %>
+    <div style="background-color: var(--macaron-green-light); padding: 10px; border-radius: 4px; margin-bottom: 20px;">
+      <%= req.query.message %>
+    </div>
+    <% } %>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>通用名称</th>
+          <th>商品名称</th>
+          <th>相关疾病</th>
+          <th>用法用量</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (medicines && medicines.length > 0) { %>
+          <% medicines.forEach((medicine, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= medicine.通用名称 %></td>
+              <td><%= medicine.商品名称 %></td>
+              <td><%= medicine.相关疾病 %></td>
+              <td><%= medicine.用法用量 %></td>
+              <td>
+                <div class="action-buttons">
+                  <a href="/medicines/<%= medicine.id %>" class="btn btn-primary">详情</a>
+                  <a href="/medicines/<%= medicine.id %>/edit" class="btn btn-secondary">修改</a>
+                  <form action="/medicines/<%= medicine.id %>/delete" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('确定要删除这个药品吗？');">删除</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }); %>
+        <% } else { %>
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 20px;">暂无药品数据</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

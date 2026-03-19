@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导入药品</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* 表单样式 */
+    .form-container {
+      background-color: var(--card-background);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    
+    .form-group input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+    
+    .form-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .info-box {
+      background-color: var(--macaron-green-light);
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>导入药品</h1>
+    </header>
+    
+    <div class="form-container">
+      <div class="info-box">
+        <p><strong>导入说明：</strong></p>
+        <ul>
+          <li>请确保CSV文件包含以下字段：通用名称、商品名称、汉语拼音、相关疾病、剂型、主要成份、适应症、规格、不良反应、用法用量、禁忌、注意事项、儿童用药、老人用药、药物相互作用、药理毒理、药代动力学、贮藏、有效期、批准文号、生产企业、药品分类、药品性质、备注</li>
+          <li>字段顺序应与上述顺序一致</li>
+          <li>文件编码应为UTF-8</li>
+        </ul>
+      </div>
+      
+      <form action="/medicines/import" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="csvFile">选择CSV文件</label>
+          <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">导入</button>
+          <a href="/medicines" class="btn btn-secondary">取消</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>药品详情</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* 详情页面样式 */
+    .detail-container {
+      background-color: var(--card-background);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .detail-header {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .detail-header h2 {
+      color: var(--text-color);
+      margin-bottom: 5px;
+    }
+    
+    .detail-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .detail-item {
+      margin-bottom: 10px;
+    }
+    
+    .detail-item label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: var(--text-color);
+    }
+    
+    .detail-item p {
+      padding: 8px 12px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      min-height: 40px;
+    }
+    
+    .detail-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>药品详情</h1>
+    </header>
+    
+    <div class="detail-container">
+      <div class="detail-header">
+        <h2><%= medicine.通用名称 %></h2>
+        <p><strong>商品名称：</strong><%= medicine.商品名称 %></p>
+      </div>
+      
+      <div class="detail-content">
+        <div class="detail-item">
+          <label>通用名称</label>
+          <p><%= medicine.通用名称 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>商品名称</label>
+          <p><%= medicine.商品名称 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>汉语拼音</label>
+          <p><%= medicine.汉语拼音 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>相关疾病</label>
+          <p><%= medicine.相关疾病 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>剂型</label>
+          <p><%= medicine.剂型 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>主要成份</label>
+          <p><%= medicine.主要成份 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>适应症</label>
+          <p><%= medicine.适应症 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>规格</label>
+          <p><%= medicine.规格 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>不良反应</label>
+          <p><%= medicine.不良反应 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>用法用量</label>
+          <p><%= medicine.用法用量 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>禁忌</label>
+          <p><%= medicine.禁忌 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>注意事项</label>
+          <p><%= medicine.注意事项 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>儿童用药</label>
+          <p><%= medicine.儿童用药 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>老人用药</label>
+          <p><%= medicine.老人用药 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>药物相互作用</label>
+          <p><%= medicine.药物相互作用 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>药理毒理</label>
+          <p><%= medicine.药理毒理 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>药代动力学</label>
+          <p><%= medicine.药代动力学 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>贮藏</label>
+          <p><%= medicine.贮藏 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>有效期</label>
+          <p><%= medicine.有效期 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>批准文号</label>
+          <p><%= medicine.批准文号 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>生产企业</label>
+          <p><%= medicine.生产企业 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>药品分类</label>
+          <p><%= medicine.药品分类 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>药品性质</label>
+          <p><%= medicine.药品性质 %></p>
+        </div>
+        
+        <div class="detail-item">
+          <label>备注</label>
+          <p><%= medicine.备注 %></p>
+        </div>
+      </div>
+      
+      <div class="detail-actions">
+        <a href="/medicines" class="btn btn-secondary">返回列表</a>
+        <a href="/medicines/<%= medicine.id %>/edit" class="btn btn-primary">修改</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
